@@ -10,19 +10,11 @@ Feel free to create a PR with improvements - but please keep this documentation 
 
 # Installation instructions
 
-## One-liner (macOS and Linux)
-
 Works on macOS and Linux. Installs `fzf` if missing (via Homebrew, apt-get, dnf, yum, pacman, zypper, apk or from source), downloads `docker-fzf` to `~/.fzf-docker/` and adds a `source` line to your `.zshrc`/`.bashrc`:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/paznoiro/fzf-docker/master/install.sh | bash
 ```
-
-## Manual
-
-1. Clone this repository: `git clone https://github.com/MartinRamm/fzf-docker.git`
-1. Add to your `.zshrc` or `.bashrc` file this command: `source /path/to/docker-fzf`
-1. (Optional): Customize the `de` command as described in _[Default command for `de`](#default-command-for-de)_
 
 # Uninstall
 
