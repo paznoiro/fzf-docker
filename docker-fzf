@@ -588,6 +588,43 @@ dcupda() {
   dcpa "$1"
 }
 
+#docker ps -a
+dps() {
+  docker ps -a
+}
+
+#docker volume ls
+dvl() {
+  docker volume ls
+}
+
+#docker network ls
+dnl() {
+  docker network ls
+}
+
+#docker ps -a, docker volume ls and docker network ls
+dall() {
+  echo "== docker ps -a =="
+  dps
+  echo
+  echo "== docker volume ls =="
+  dvl
+  echo
+  echo "== docker network ls =="
+  dnl
+}
+
+#docker volume inspect all volumes
+dvlm() {
+  docker volume inspect $(docker volume ls -q)
+}
+
+#docker stats
+dst() {
+  docker stats
+}
+
 fzf-docker-debug-info() {
   location="${BASH_SOURCE[0]}"
   if [ -z "$location" ]; then #fzf

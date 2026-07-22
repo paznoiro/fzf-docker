@@ -53,6 +53,12 @@ curl -fsSL https://raw.githubusercontent.com/paznoiro/fzf-docker/master/uninstal
 | dcpa    | docker-compose pull all services                                                   |          | path to docker-compose file (defaults to recursive search for `docker-compose.yml` or `docker-compose.yaml`) |
 | dcupd   | docker-compose update image (rebuild or pull)                                      | multiple | path to docker-compose file (defaults to recursive search for `docker-compose.yml` or `docker-compose.yaml`) |
 | dcupda  | `dcba` and `dcpa`                                                                  |          | path to docker-compose file (defaults to recursive search for `docker-compose.yml` or `docker-compose.yaml`) |
+| dps     | docker ps -a                                                                       |          |                                                                                                              |
+| dvl     | docker volume ls                                                                   |          |                                                                                                              |
+| dnl     | docker network ls                                                                  |          |                                                                                                              |
+| dall    | `dps`, `dvl` and `dnl`                                                             |          |                                                                                                              |
+| dvlm    | docker volume inspect all volumes                                                  |          |                                                                                                              |
+| dst     | docker stats                                                                       |          |                                                                                                              |
 
 ## Default command for `de`
 The command used to `exec` into a container is dependent on the base image.
