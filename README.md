@@ -24,6 +24,14 @@ curl -fsSL https://raw.githubusercontent.com/paznoiro/fzf-docker/master/install.
 1. Add to your `.zshrc` or `.bashrc` file this command: `source /path/to/docker-fzf`
 1. (Optional): Customize the `de` command as described in _[Default command for `de`](#default-command-for-de)_
 
+# Uninstall
+
+Removes the source line from all shell rc files and deletes `~/.fzf-docker/`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/paznoiro/fzf-docker/master/uninstall.sh | bash
+```
+
 # Overview of available commands
 
 | command | description                                                                        | fzf mode | command arguments (optional)                                                                                 |

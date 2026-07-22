@@ -120,15 +120,24 @@ add_source_line() {
 }
 
 setup_shell() {
-  case "$(basename "$SHELL")" in
-    zsh)  add_source_line "$HOME/.zshrc" ;;
-    bash) add_source_line "$HOME/.bashrc" ;;
-    *)
-      warn "Unknown shell '$SHELL'."
-      add_source_line "$HOME/.bashrc"
-      [ -f "$HOME/.zshrc" ] && add_source_line "$HOME/.zshrc"
-      ;;
-  esac
+  local files=(
+    "$HOME/.zshrc"
+    "$HOME/.bashrc"
+    "$HOME/.bash_profile"
+    "$HOME/.zprofile"
+    "$HOME/.profile"
+  )
+  local found=false
+  for f in "${files[@]}"; do
+    if [ -f "$f" ]; then
+      add_source_line "$f"
+      found=true
+    fi
+  done
+
+  if [ "$found" = false ]; then
+    add_source_line "$HOME/.bashrc"
+  fi
 }
 
 main() {
@@ -144,7 +153,7 @@ main() {
   setup_shell
   echo
 
-  info "Installation complete! Open a new terminal (or run: source $INSTALL_FILE) and try: dr, dl, de, dcu, ..."
+  info "Installation complete! Open a new terminal to start using fzf-docker."
 }
 
 main "$@"
