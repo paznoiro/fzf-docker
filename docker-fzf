@@ -158,10 +158,11 @@ __docker_compose_parse_services_config() {
 }
 
 #docker restart
+#$1 (Optional) initial filter for container names. If it matches exactly one container, it is automatically selected
 dr() {
   __docker_pre_test
   if [ $? -eq 0 ]; then
-    local containers=$(docker ps --format '{{.Names}}' | fzf -m)
+    local containers=$(docker ps --format '{{.Names}}' | fzf -m -1 --query="$1")
 
     echo -e "$containers" \
       | while read -r name; do

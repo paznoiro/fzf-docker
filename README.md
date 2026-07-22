@@ -6,9 +6,19 @@ Feel free to create a PR with improvements - but please keep this documentation 
 # Requirements
 
 1. `docker` / `docker-compose` must be accessible to non-root users
-1. `fzf`  (https://github.com/junegunn/fzf#installation)
+1. `fzf`  (https://github.com/junegunn/fzf#installation) - automatically installed by the install script below, if missing
 
 # Installation instructions
+
+## One-liner (macOS and Linux)
+
+Works on macOS and Linux. Installs `fzf` if missing (via Homebrew, apt-get, dnf, yum, pacman, zypper, apk or from source), downloads `docker-fzf` to `~/.fzf-docker/` and adds a `source` line to your `.zshrc`/`.bashrc`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/paznoiro/fzf-docker/master/install.sh | bash
+```
+
+## Manual
 
 1. Clone this repository: `git clone https://github.com/MartinRamm/fzf-docker.git`
 1. Add to your `.zshrc` or `.bashrc` file this command: `source /path/to/docker-fzf`
@@ -18,7 +28,7 @@ Feel free to create a PR with improvements - but please keep this documentation 
 
 | command | description                                                                        | fzf mode | command arguments (optional)                                                                                 |
 | ------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| dr      | docker restart && open logs (in follow mode)                                       | multiple |                                                                                                              |
+| dr      | docker restart && open logs (in follow mode)                                       | multiple | container name filter - e.g.: `zit` - (if it matches exactly one container, it is automatically selected)    |
 | dl      | docker logs (in follow mode)                                                       | multiple | time interval - e.g.: `1m` for 1 minute - (defaults to all available logs)                                   |
 | dla     | docker logs (in follow mode) all containers                                        |          | time interval - e.g.: `1m` for 1 minute - (defaults to all available logs)                                   |
 | de      | docker exec in interactive mode                                                    | single   | command to exec (default - see below)                                                                        |
